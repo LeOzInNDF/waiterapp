@@ -1,8 +1,7 @@
-import { Product } from './Product';
 import { model, Schema } from 'mongoose';
 
 export const Order = model('Order', new Schema({
-  name: {
+  table: {
     type: String,
     required: true,
   },
@@ -15,10 +14,10 @@ export const Order = model('Order', new Schema({
     type: Date,
     default: Date.now,
   },
-  Products: {
+  products: {
     required: true,
     type: [{
-      Product: {
+      product: {
         type: Schema.Types.ObjectId,
         required: true,
         ref: 'Product',
